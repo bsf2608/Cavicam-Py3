@@ -192,6 +192,8 @@ pip install \
   matplotlib \
   RPi.GPIO \
   picamera2
+
+# note: libcamera-apps (system package) provides capture tools used in testing; install via apt if not present
 ```
 
 ### Option B: System-wide Installation
@@ -205,7 +207,8 @@ sudo apt-get install -y \
   python3-matplotlib \
   python3-rpi.gpio \
   python3-picamera2 \
-  sqlite3
+  sqlite3 \
+  libcamera-apps
 # note: legacy python3-picamera is not required on 64-bit OS
 ```
 
