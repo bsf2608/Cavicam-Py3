@@ -70,18 +70,28 @@ This may take 5-10 minutes.
 
 ### Step 4: Enable Camera Interface
 
+On older Raspberry Pi OS releases the camera can be enabled via the
+configuration tool.  Run:
+
 ```bash
-# Open Raspberry Pi configuration
 sudo raspi-config
 ```
 
-Navigate to:
-- **Interface Options** → **Camera** → **Enable**
+Then navigate to **Interface Options** → **Camera** → **Enable**, exit and
+reboot:
 
-Exit and reboot:
 ```bash
 sudo reboot
 ```
+
+> **Note for Pi 4 / 64‑bit OS (Bookworm and later):**
+> the "Camera" item is often missing from the `raspi-config` menu.  this is
+> because the libcamera stack is used by default and no software switch is
+> required.  the camera device is enabled automatically by the device tree
+> overlay; you can verify it with `vcgencmd get_camera` or simply run the
+> libcamera test below.  if you are running a mixed/legacy environment you
+> may still see a "Legacy Camera" setting under Interface Options – you do **not**
+> need to enable this for picamera2/libcamera to work.
 
 Test camera after boot (libcamera stack):
 ```bash
