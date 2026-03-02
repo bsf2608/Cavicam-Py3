@@ -149,7 +149,7 @@ source ~/.bashrc
 cd ~
 
 # Clone the repository
-git clone https://github.com/bsf2608/cavicapture.git
+git clone https://github.com/bsf2608/Cavicam-Py3.git
 
 # Go into directory
 cd cavicapture
@@ -163,7 +163,7 @@ ls -la
 
 ### Option B: Download ZIP File
 
-1. Visit: https://github.com/bsf2608/cavicapture
+1. Visit: https://github.com/bsf2608/Cavicam-Py3
 2. Click "Code" → "Download ZIP"
 3. Extract on your computer
 4. Transfer to Pi via SCP:
@@ -602,3 +602,4 @@ sudo usermod -a -G gpio pi
 ---
 
 **Installation completed!** You're ready to capture images!
+
