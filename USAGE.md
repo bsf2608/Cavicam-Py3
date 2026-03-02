@@ -585,8 +585,9 @@ except Exception as e:
 EOF
 
 # Or test with libcamera instead (legacy raspistill may not exist)
-libcamera-hello --width 3280 --height 2464 -t 1000
-libcamera-still -o test.jpg
+// Try Bookworm `rpicam` tools first (if present), otherwise use libcamera tools
+rpicam-hello || libcamera-hello --width 3280 --height 2464 -t 1000
+rpicam-jpeg -o test.jpg || libcamera-still -o test.jpg
 ```
 
 ---

@@ -444,8 +444,10 @@ Or use [SQLiteBrowser](https://sqlitebrowser.org/) for GUI analysis.
 3. Reboot: `sudo reboot`
 4. Verify the camera with libcamera:
    ```bash
-   libcamera-hello --width 3280 --height 2464
-   libcamera-still -o test.jpg
+  # On Bookworm the tools may be named `rpicam-hello` / `rpicam-jpeg`.
+  # Try rpicam first, otherwise fall back to libcamera commands:
+  rpicam-hello || libcamera-hello --width 3280 --height 2464
+  rpicam-jpeg -o test.jpg || libcamera-still -o test.jpg
    ```
 5. If you see preview/ capture works, then picamera2 should be able to access the device.
 6. If problems persist, install `python3-picamera2` and retry the import:

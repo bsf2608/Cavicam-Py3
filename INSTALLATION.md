@@ -95,8 +95,11 @@ sudo reboot
 
 Test camera after boot (libcamera stack):
 ```bash
-libcamera-hello --width 3280 --height 2464 -t 1000
-libcamera-still -o test.jpg
+# On Bookworm the tools may be named `rpicam-hello` / `rpicam-jpeg`.
+# Try the rpicam tool first, otherwise fall back to libcamera tools:
+rpicam-hello || libcamera-hello --width 3280 --height 2464 -t 1000
+# Capture test image (either tool):
+rpicam-jpeg -o test.jpg || libcamera-still -o test.jpg
 ls -lh test.jpg
 ```
 
@@ -273,10 +276,11 @@ except ImportError as e:
 print("\nAll dependencies OK!")
 EOF
 
-# Verify hardware camera with libcamera
+# Verify hardware camera with libcamera / rpicam
 # (this confirms the kernel driver and physical connection)
-libcamera-hello --width 3280 --height 2464 -t 2000
-libcamera-still -o camtest.jpg
+# Try rpicam tools first (Bookworm); otherwise use libcamera commands:
+rpicam-hello || libcamera-hello --width 3280 --height 2464 -t 2000
+rpicam-jpeg -o camtest.jpg || libcamera-still -o camtest.jpg
 
 echo "Check camtest.jpg for a captured image"
 
@@ -291,7 +295,7 @@ Python version: 3.11.x ...
 ✓ OpenCV: 4.8.0
 ✓ NumPy: 1.24.x
 ✓ RPi.GPIO installed
-✓ picamera: 1.13
+✓ picamera2: available
 ✓ SQLite3 available
 ✓ Matplotlib installed
 

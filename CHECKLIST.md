@@ -8,7 +8,7 @@ Use this checklist to verify your Cavicapture installation is complete and worki
 - [ ] Python 3.7 or newer installed (`python3 --version`)
 - [ ] Git installed (`git --version`)
 - [ ] Camera module enabled in raspi-config
-- [ ] Camera working (`libcamera-hello` preview or run `python3 test_camera.py`)
+- [ ] Camera working (`rpicam-hello` or `libcamera-hello` preview, or run `python3 test_camera.py`)
 
 
 ## Cavicapture Installation
